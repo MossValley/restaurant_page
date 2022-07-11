@@ -1,6 +1,7 @@
 import './style.css';
 import home from './home';
 import about from './aboutUs';
+import menu from './menu';
 
 function destroyView() {
   while (content.lastChild) {
@@ -16,13 +17,16 @@ function switchView(view) {
     case 'about':
       about();
       break;
+    case 'menu':
+      menu();
+      break;
     default:
       home();
   };
 }
 
 function defaultView() {
-  home();
+  menu();
 }
 
 function createPage() {
@@ -31,7 +35,7 @@ function createPage() {
   document.body.appendChild(topLevel);
 
   const tabRows = document.createElement('div');
-  const tabNames = ['home', 'about'];
+  const tabNames = ['home', 'about', 'menu'];
 
   tabNames.forEach((name) => {
     const tab = document.createElement('button');
